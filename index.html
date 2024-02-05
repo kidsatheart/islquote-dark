@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote</title>
+
+    <style>
+
+        .widget {
+            padding: 15px 15px;
+            color: #FFFFFF;
+            text-align: center;
+            max-width: 75%;
+            margin: auto;
+            font-size: 1.25em;
+            font-family: 'Courier New', Courier, monospace;
+
+        }
+
+        div {
+            display: flex;    
+            flex-direction: column;   
+            justify-content: center; 
+            align-items: center;
+            width: 50%;      
+}
+
+     
+    </style>
+</head>
+<body>
+
+    <div class="widget" id="widget"></div>
+
+
+<script>
+
+quotes=[
+"Disaat kita hilang semangat untuk berusaha, fikirkan semula kenapa kita memulakannya dulu. Jadi, jangan cepat putus asa.",
+"Kehidupan kita di dunia ini tidak menjanjikan satu jaminan yang berkekalan. Apa yang ada hanyalah percubaan, cabaran dan pelbagai peluang. Jaminan yang kekal abadi hanya dapat ditemui apabila kita kembali semula ke pada Ilahi.",
+"Kebijaksanaan menjanjikan kebahagiaan dan kekayaan. Tetapi jika disalahgunakan akan mewujudkan penderitaan.",
+"Kekayaan bukanlah dengan banyaknya harta, namum kekayaan adalah hati yang selalu merasa cukup",
+"Jangan sesekali pernah membenci seseorang yang telah melukakan hati kita kerana mungkin orang yang telah melukakan hati kita itu juga pernah buat kita tersenyum pada suatu ketika dahulu.",
+"Dalam hidup,terkadang kita lebih banyak mendapatkan apa yang tidak kita inginkan. Dan ketika kita mendapatkan apa yang kita inginkan, akhirnya kita tahu bahawa yang kita inginkan terkadang tidak dapat membuat hidup kita menjadi lebih bahagia.",
+"Jangan takut mencuba perkara baru dalam kehidupan. Kalau kita berjaya, Alhamdulillah. Kalau gagal, kita akan lebih bijak sebab belajar dari kesilapan.",
+"Jangan terlalu menangis dengan apa yang hilang sehingga terlupa untuk tersenyum dengan apa yang masih ada.",
+"Ketika dalam sebuah perjuangan terdapat tantangan yang besar, berarti keberhasilan yang menanti juga lebh besar",
+"Ketika kamu lahir kamu menangin dan orang lain tersenyum. Maka jalanilah hidup kami sehingga ketika kamu mati, kamu tersenyum dan orang lain menangis.",
+"Bermimpilah tentang apa yang ingin kamu impikan, pergilah ke tempat-tempat kamu ingin pergi. Jadilah seperti yang kamu inginkan, kerna kamu hanya memiliki satu kehidupan dan satu kesempatan untuk melakukan perkara yang anda mahukan.",
+"Sakit dalam perjuangan itu hanya sementara, namun jika menyerah, rasa sakit itu akan terasa selamanya.",
+"Ada ketikanya hidup kita ini terlalu jauh daripada apa yang kita harapkan. Tapi, jangan jadikan itu sebagai penghalang untuk kita mencari bahagia,",
+"Gantungkan azam dan semangatmu setinggi bintang di langit dan rendahkan hatimu serendah mutiara di lautan.",
+"Dunia ini ibarat bayangan: kejar dia dan engkau tak akan pernah boleh menangkapnya; balikkan badanmu darinya dan dia tak punya pilihan lain kecuali mengikutimu.– Ibnu al-Qayyim",
+"Kehilangan waktu itu lebih sulit daripada kematian, karena kehilangan waktu membuatmu jauh dari Allah dan Hari Akhir, sementara kematian membuatmu jauh dari kehidupan dunia dan penghuninya saja. – Ibnu al-Qayyim",
+"Dunia ini hanya terdiri atas tiga hari: Kelmarin, ia telah pergi bersama dengan semua yang menyertainya. Esok, engkau mungkin tak akan pernah menemuinya. Hari ini, itulah yang kau punya, jadi beramallah di sana. – Hasan al Bashri",
+"Dan demikianlah rahsia dunia ini. Jika engkau membuang cinta dunia dari hatimu, dunia akan tersedia untuk engkau ambil. Engkau boleh memiliki dunia kerana ia berada di tanganmu dan bukan di dalam hatimu. – Hamzah Yusuf",
+"Setiap dan semua bahagian dari dunia ini adalah perangkap bagi yang jahil dan mengangkat kebahagiaan bagi yang bijak. – Rumi",
+"Ketika cinta di atas dunia memasuki hati, takut akan Akhirat akan keluar darinya. Berhati-hatilah dengan godaan dunia, kerana tidak seorang hambapun yang membuka sebuah pintu dunia ini tanpa tertutupnya beberapa pintu Akhirat baginya. - Hasan al Bashri",
+"Kita membangun kehidupan di dunia ini dengan merobek-robek agama kita. Pada akhirnya, baik agama mahupun dunia yang kita bangunkan tidak lagi bersisa. – Ibrahim bin Adham",
+"Jika saja dunia ini dijual di pasar, aku tak akan membelinya pada harga sepotong roti kerana semua permasalahan yang dimilikinya. – Imam asy Syafi’i",
+"Orang yang berjaya dalam hidup adalah orang yang nampak tujuannya dengan jelas dan menjurus kepadanya tanpa menyimpang- Cecil B.Demille",
+"Kesabaran itu ada dua macam: sabar atas sesuatu yang tidak kau ingin dan sabar menahan diri dari sesuatu yang kau ingini.-Ali bin Abi Thalib",
+"Setiap perjuangan pasti ada tantangan. Jika tidak berani menghadapi tantangan, jangan berjuang. Namun hidup sendiri pun adalah perjuangan. – Abdurrahman Navis",
+"Jika Anda (benar-benar) mencintai Allāh maka ikutilah aku (iaitu: menerima Islam agama Tunggal, mengikuti Qur’an dan Sunnah), Allāh akan mengasihi dan mengampuni dosa-dosamu. Dan Allāh Maha Pengampun lagi Maha Penyayang. “ (Ali Imran Ayt31)",
+"Allah berfirman“…Barangsiapa bertakwa kepada Allah nescaya Dia akan mengadakan baginya jalan keluar. Dan memberinya rezeki dari arah yang tidak disangka-sangkanya. Dan barangsiapa yang bertawakkal kepada Allah nescaya Allah akan mencukupkan (keperluan)nya. Sesungguhnya Allah melaksanakan urusan yang (dikehendaki)Nya. Sesungguhnya Allah telah mengadakan ketentuan bagi tiap-tiap sesuatu. (Ath Thalaaq Ayt2-3)",
+"Ketahuilah, bahwa sesungguhnya kehidupan dunia ini hanyalah permainan dan suatu yang melalaikan, perhiasan dan bermegah-megah antara kamu serta berbangga-banggaan tentang banyaknya harta dan anak, seperti hujan yang tanam-tanamannya mengagumkan para petani; kemudian tanaman itu menjadi kering dan kamu lihat warnanya kuning kemudian menjadi hancur. Dan di akhirat (nanti) ada azab yang keras dan ampunan dari Allah serta keredhaan-Nya. Dan kehidupan dunia ini tidak lain hanyalah kesenangan yang menipu. – Al hadid Ayt57-20",
+"Karena sesungguhnya sesudah kesulitan itu ada kemudahan, sesungguhnya sesudah kesulitan itu ada kemudahan. – (Al-Insyirah Ayt6)",
+"Dan bersabarlah kamu, sesungguhnya janji Allah adalah benar. – (Ar-Rum Ayt60)",
+"Dan barang -siapa yang bertakwa kepada Allah, niscaya Allah menjadikan baginya kemudahan dalam urusannya. – (At-Talaq Ayt4)",
+"Allah tidak membebani seseorang melainkan sesuai dengan kesanggupannya. – (Al-Baqarah Ayt86)",
+"Sesungguhnya Tuhanku, benar-benar Maha Mendengar (memperkenankan) doa. – (Ibrahim Ayt39)",
+"Allah berfirman- 'Janganlah kamu berdua khawatir, sesungguhnya Aku beserta kamu berdua, Aku mendengar dan melihat'. – (Thaha Ayt46)",
+"Sesungguhnya hanya orang-orang yang bersabarlah yang dicukupkan pahala mereka tanpa batas. – (Az-Zumar Ayt10)",
+"Dan Dia mendapatimu sebagai seorang yang bingung, lalu Dia memberikan petunjuk. – (Ad-Duha Ayt7)",
+"Ingatlah kamu kepada-Ku, niscaya Aku ingat (pula) kepadamu. – (Al-Baqarah Ayt152)",
+"Ingatlah, sesungguhnya kepunyaan Allah apa yang ada di langit dan di bumi. – (Yunus Ayt55)",
+"Sesungguhnya Allah adalah Maha Mengetahui lagi Maha Bijaksana. – (Al-Insan Ayt30)",
+"dan rahmat-Ku meliputi segala sesuatu. – (Al-A’raf Ayt156)",
+"Learning, like success, is anything but a linear process",
+"Your time is limited, don't waste it living someone else's life - Steve Jobs", 
+"The only limit to our realization of tomorrow will be our doubts of today - Franklin D. Roosevelt", 
+"When you have a dream, you've got to grab it and never let go - Carol Burnett", 
+ "I can't think of any better representation of beauty than someone who is unafraid to be herself - Emma Stone", 
+ "Keep your face always toward the sunshine—and shadows will fall behind you - Walt Whitman", 
+ "It is never too late to be what you might have been - George Eliot", 
+ "The greatest act of courage is to be and to own all of who you are — without apology, without excuses, without masks to cover the truth of who you are - Debbie Ford", 
+ "Find out who you are and do it on purpose - Dolly Parton", 
+ "Your life does not get better by chance, it gets better by change - Jim Rohn", 
+ "Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful - Albert Schweitzer", 
+ "The best way to predict your future is to create it - Peter Drucker", 
+ "When you know better you do better - Maya Angelou", 
+ "We can do anything we want to if we stick to it long enough - Helen Keller", 
+ "The only thing standing between you and your goal is the story you keep telling yourself as to why you can't achieve it - Jordan Belfort", 
+ "Life is 10% what happens to us and 90% how we react to it - Charles R. Swindoll", 
+ "Success usually comes to those who are too busy to be looking for it - Henry David Thoreau", 
+ "Believe you can and you're halfway there - Theodore Roosevelt", 
+ "The only thing worse than being blind is having sight but no vision - Helen Keller", 
+ "Don't watch the clock; do what it does. Keep going - Sam Levenson", 
+ "A person who never made a mistake never tried anything new - Albert Einstein", 
+  "You can't use up creativity. The more you use, the more you have - Maya Angelou", 
+ "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment - Ralph Waldo Emerson",
+"Don't limit your challenges, challenge your limits - Jerry Dunn", 
+ "Life is either a daring adventure or nothing at all - Helen Keller", 
+ "In three words I can sum up everything I've learned about life: it goes on - Robert Frost", 
+ "Success is liking yourself, liking what you do, and liking how you do it - Maya Angelou", 
+ "You miss 100% of the shots you don't take - Wayne Gretzky", 
+ "There is no passion to be found playing small - in settling for a life that is less than the one you are capable of living - Nelson Mandela", 
+ "Do not go where the path may lead, go instead where there is no path and leave a trail - Ralph Waldo Emerson", 
+"In order to succeed, we must first believe that we can - Nikos Kazantzakis", 
+ "Believe in yourself and the world will be at your feet - Swami Vivekananda", 
+ "The only way to achieve the impossible is to believe it is possible - Charles Kingsleigh", 
+  "In the middle of every difficulty lies opportunity - Albert Einstein", 
+ "I attribute my success to this: I never gave or took any excuse - Florence Nightingale", 
+ "Your only limit is you - Anonymous", 
+"Be so good they can't ignore you - Steve Martin", 
+ "Great minds discuss ideas; average minds discuss events; small minds discuss people - Eleanor Roosevelt", 
+ "Our greatest glory is not in never falling, but in rising every time we fall - Confucius", 
+ "The future depends on what you do today - Mahatma Gandhi", 
+ "Success is not in what you have, but who you are - Bo Bennett",
+  "It’s not the absence of fear, it’s overcoming it. Sometimes you’ve got to blast through and have faith - Emma Watson", 
+ "When the whole world is silent, even one voice becomes powerful - Malala Yousafzai", 
+ "I will not have my life narrowed down. I will not bow down to somebody else's whim or to someone else's ignorance - Bell Hooks", 
+ "Spread love everywhere you go. Let no one ever come to you without leaving happier - Mother Teresa", 
+  "No one can make you feel inferior without your consent - Eleanor Roosevelt", 
+ "I’d rather regret the things I’ve done than regret the things I haven’t done - Lucille Ball", 
+ "Make the most of yourself by fanning the tiny, inner sparks of possibility into flames of achievement - Golda Meir", 
+ "The difference between successful people and others is how long they spend time feeling sorry for themselves - Barbara Corcoran", 
+ "Knowing what must be done does away with fear - Rosa Parks", 
+ "You can waste your lives drawing lines. Or you can live your life crossing them - Shonda Rhimes", 
+ "You can never leave footprints that last if you are always walking on tiptoe - Leymah Gbowee", 
+ "Don’t look at your feet to see if you are doing it right. Just dance - Anne Lamott", 
+ "Step out of the history that is holding you back. Step into the new story you are willing to create - Oprah Winfrey",
+ "The most common way people give up their power is by thinking they don’t have any - Alice Walker",
+ "If you don't risk anything, you risk even more - Erica Jong", 
+ "I am not a has-been. I am a will be - Lauren Bacall", 
+ "I was smart enough to go through any door that opened - Joan Rivers", 
+ "The way we talk to our children becomes their inner voice - Peggy O'Mara", 
+ "Don’t be intimidated by what you don’t know. That can be your greatest strength and ensure that you do things differently from everyone else - Sara Blakely", 
+ "I can’t think of any better representation of beauty than someone who is unafraid to be herself - Emma Stone",
+ "Do not bring people in your life who weigh you down. And trust your instincts - good relationships feel good. They feel right. They don’t hurt - Oprah Winfrey", 
+ "Done is better than perfect - Sheryl Sandberg", 
+ "You can't be that kid standing at the top of the waterslide, overthinking it. You have to go down the chute - Tina Fey", 
+ "Above all, be the heroine of your life, not the victim - Nora Ephron", 
+ "I choose to make the rest of my life the best of my life - Louise Hay", 
+ "Life shrinks or expands in proportion to one’s courage - Anais Nin", 
+ "Do you want to meet the love of your life? Look in the mirror - Byron Katie", 
+ "The only courage that matters is the kind that gets you from one moment to the next - Mignon McLaughlin", 
+ "If you obey all the rules, you miss all the fun - Katharine Hepburn", 
+ "I dwell in possibility - Emily Dickinson", 
+ "My mission in life is not merely to survive, but to thrive - Maya Angelou", 
+ "It’s not the load that breaks you down, it’s the way you carry it - Lena Horne", 
+ "The best protection any woman can have is courage - Elizabeth Cady Stanton", 
+ "There is no gate, no lock, no bolt that you can set upon the freedom of my mind - Virginia Woolf", 
+ "Cautious, careful people, always casting about to preserve their reputations can never effect a reform - Susan B. Anthony", 
+ "I'm not afraid of storms, for I'm learning how to sail my ship - Louisa May Alcott", 
+ "Aging is not 'lost youth' but a new stage of opportunity and strength - Betty Friedan", 
+ "We must believe that we are gifted for something, and that this thing, at whatever cost, must be attained - Marie Curie",
+ "I attribute my success to this - I never gave or took any excuse - Florence Nightingale", 
+ "Aging is not lost youth but a new stage of opportunity and strength - Betty Friedan", 
+ "The only way to do something in depth is to work hard - Miuccia Prada", 
+ "You have to imagine it possible before you can see something. You can have the evidence right in front of you, but if you can't imagine something that has never existed before, it's impossible - Rita Dove",
+"The most effective way to do it, is to do it - Amelia Earhart", 
+"I am not a product of my circumstances. I am a product of my decisions - Stephen Covey", "The only way to achieve the impossible is to believe it is possible - Charles Kingsleigh", 
+"You are the one that possesses the keys to your being. You carry the passport to your own happiness - Diane von Furstenberg", 
+"Make yourself a priority once in a while. It's not selfish. It's necessary - Karen A. Baquiran", 
+"Don't be afraid to speak up for yourself. Keep fighting for your dreams - Gabby Douglas", "Normal is not something to aspire to, it's something to get away from - Jodie Foster", 
+"Power is not given to you. You have to take it - Beyoncé Knowles Carter", 
+"Cautious, careful people, always casting about to preserve their reputations can never effect a reform - Susan B. Anthony", 
+"I may be wearing makeup, but I can throw a fastball by you at the same time - Jennie Finch", 
+"I didn't get there by wishing for it or hoping for it, but by working for it - Estée Lauder", 
+"I am not free while any woman is unfree, even when her shackles are very different from my own - Audre Lorde", 
+"One cannot accomplish anything without fanaticism - Eva Perón", 
+"The most courageous act is still to think for yourself. Aloud - Coco Chanel", 
+ "You can never leave footprints that last if you are always walking on tiptoe - Leymah Gbowee", "Don't compromise yourself. You are all you've got - Janis Joplin",
+ "I'm tough, ambitious and I know exactly what I want. If that makes me a bitch, okay - Madonna", 
+ "You have within you right now, everything you need to deal with whatever the world can throw at you - Brian Tracy",  
+];
+
+const INTERVAL = 120000;
+
+function displayQuote(){
+
+    document.getElementById('widget').innerHTML =quotes[0];
+    quotes.forEach((quote, i) => {
+        setTimeout(() => {
+            document.getElementById('widget').innerHTML =quote;
+        }, i * INTERVAL);  
+    });
+    }
+
+    function displayWidget() {
+        displayQuote();
+        setTimeout(displayWidget, quotes.length*INTERVAL);
+    }
+    displayWidget()
+
+</script>
+
+</body>
+</html>
